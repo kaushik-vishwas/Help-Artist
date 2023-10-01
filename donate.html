@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid of Boxes</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .box:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        #selectedNumber {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="boxContainer">
+        <div class="box" data-value="200">Rs 200</div>
+        <div class="box" data-value="400">Rs 400</div>
+        <div class="box" data-value="500">Rs 500</div>
+        <div class="box" data-value="200">Rs 200</div>
+        <div class="box" data-value="400">Rs 400</div>
+        <div class="box" data-value="500">Rs 500</div>
+        <div class="box" data-value="200">Rs 200</div>
+        <div class="box" data-value="400">Rs 400</div>
+        <div class="box" data-value="500">Rs 500</div>
+        <div class="box" data-value="200">Rs 200</div>
+        <div class="box" data-value="400">Rs 400</div>
+        <div class="box" data-value="500">Rs 500</div>
+        <!-- Add more boxes as needed -->
+    </div>
+    <input type="text" id="selectedNumber" placeholder="Selected Number">
+    <script>
+        const boxContainer = document.getElementById('boxContainer');
+        const selectedNumberInput = document.getElementById('selectedNumber');
+
+        boxContainer.addEventListener('click', (event) => {
+            const clickedBox = event.target;
+            if (clickedBox.classList.contains('box')) {
+                const value = clickedBox.getAttribute('data-value');
+                selectedNumberInput.value = value;
+            }
+        });
+    </script>
+</body>
+</html>
